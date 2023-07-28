@@ -5,11 +5,12 @@ public class Spots {
     private int y;
     private Piece piece;
 
-    public Spots(int x,int y, Piece piece){
-        this.x=x;
-        this.y=y;
-        this.piece=piece;
+    public Spots(int x, int y, Piece piece){
+        this.setX(x);
+        this.setY(y);
+        this.setPiece(piece);
     }
+    
     public int getX() {
         return x;
     }
