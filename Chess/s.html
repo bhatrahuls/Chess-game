@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess game</title>
+    <style>
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .item1{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 80vh;
+            
+            margin-right: 100px;
+
+        }
+        .item2{
+            height: 600px;
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        }
+        .white{
+            background-color: antiquewhite;
+            height: 80px;
+            width: 80px;
+        }
+        .black{
+            background-color: burlywood;
+            height: 80px;
+            width: 80px;
+        }
+
+        .blackPawn{
+            background-image: url(./pieceIcons/BlackPawn.svg);
+            background-size: contain;
+        }
+
+        .whitePawn{
+            background-image: url(./pieceIcons/WhitePawn.svg);
+            background-size: contain;
+        }
+
+        .blackQueen{
+            background-image: url(./pieceIcons/BlackQueen.svg);
+            background-size: contain;
+        }
+
+        .whiteQueen{
+            background-image: url(./pieceIcons/WhiteQueen.svg);
+            background-size: contain;
+        }
+
+        .blackBishop{
+            background-image: url(./pieceIcons/BlackBishop.svg);
+            background-size: contain;
+        }
+
+        .whiteBishop{
+            background-image: url(./pieceIcons/WhiteBishop.svg);
+            background-size: contain;
+        }
+
+        .blackKnight{
+            background-image: url(./pieceIcons/BlackKnight.svg);
+            background-size: contain;
+        }
+
+        .whiteKnight{
+            background-image: url(./pieceIcons/WhiteKnight.svg);
+            background-size: contain;
+        }
+
+        .blackKing{
+            background-image: url(./pieceIcons/BlackKing.svg);
+            background-size: contain;
+        }
+
+        .whiteKing{
+            background-image: url(./pieceIcons/WhiteKing.svg);
+            background-size: contain;
+        }
+
+        .blackRook{
+            background-image: url(./pieceIcons/BlackRook.svg);
+            background-size: contain;
+        }
+
+        .whiteRook{
+            background-image: url(./pieceIcons/WhiteRook.svg);
+            background-size: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item1">
+            
+            Which piece to move? <input type="text">
+            Final destination? (x,y) <input type="text">
+            <input type="submit" value="Validate Move">
+            
+        </div>
+        <div class="item2">
+            <div class="white blackRook"></div>
+            <div class="black blackKnight"></div>
+            <div class="white blackBishop"></div>
+            <div class="black blackQueen"></div>
+            <div class="white blackKing"></div>
+            <div class="black blackBishop"></div>
+            <div class="white blackKnight"></div>
+            <div class="black blackRook"></div>
+            
+            <div class="black blackPawn"></div>
+            <div class="white blackPawn"></div>
+            <div class="black blackPawn"></div>
+            <div class="white blackPawn"></div>
+            <div class="black blackPawn"></div>
+            <div class="white blackPawn"></div>
+            <div class="black blackPawn"></div>
+            <div class="white blackPawn"></div>
+            
+            <div class="white"></div>
+            <div class="black"></div>
+            <div class="white"></div>
+            <div class="black"></div>
+            <div class="white"></div>
+            <div class="black"></div>
+            <div class="white"></div>
+            <div class="black"></div>
+            
+            <div class="black"></div>
+            <div class="white"></div>
+            <div class="black"></div>
+            <div class="white"></div>
+            <div class="black"></div>
+            <div class="white"></div>
+            <div class="black"></div>
+            <div class="white"></div>
+            
+            <div class="white"></div>
+            <div class="black"></div>
+            <div class="white"></div>
+            <div class="black"></div>
+            <div class="white"></div>
+            <div class="black"></div>
+            <div class="white"></div>
+            <div class="black"></div>
+            
+            <div class="black"></div>
+            <div class="white"></div>
+            <div class="black"></div>
+            <div class="white"></div>
+            <div class="black"></div>
+            <div class="white"></div>
+            <div class="black"></div>
+            <div class="white"></div>
+            
+            <div class="white whitePawn"></div>
+            <div class="black whitePawn"></div>
+            <div class="white whitePawn"></div>
+            <div class="black whitePawn"></div>
+            <div class="white whitePawn"></div>
+            <div class="black whitePawn"></div>
+            <div class="white whitePawn"></div>
+            <div class="black whitePawn"></div>
+            
+            <div class="black whiteRook"></div>
+            <div class="white whiteKnight"></div>
+            <div class="black whiteBishop"></div>
+            <div class="white whiteQueen"></div>
+            <div class="black whiteKing"></div>
+            <div class="white whiteBishop"></div>
+            <div class="black whiteKnight"></div>
+            <div class="white whiteRook"></div>
+
+            
+        </div>
+    </div>
+    
+</body>
+</html>
