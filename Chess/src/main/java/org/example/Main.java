@@ -69,6 +69,7 @@ public class Main {
 
             //System.out.println(board.spot[srcX][srcY].getPiece().validateMove(board,board.spot[srcX][srcY],board.spot[desX][desY],helper));
             try {
+//                System.out.println("resume : "+board.spot[srcX][srcY].getPiece().validateMove(board,board.spot[srcX][srcY],board.spot[desX][desY],helper));
 
                 if(board.spot[srcX][srcY].getPiece().validateMove(board,board.spot[srcX][srcY],board.spot[desX][desY],helper)){
                     Piece temp=board.spot[srcX][srcY].getPiece();
@@ -83,7 +84,9 @@ public class Main {
                         kingY=board.whiteKing[1];
                     }
 
-                    helper.movePiece(board,board.spot[srcX][srcY],board.spot[desX][desY]);
+                    String color = count % 2 == 0 ? "w": "b";
+                    helper.movePiece(board,board.spot[srcX][srcY],board.spot[desX][desY], color);
+
                     System.out.println(helper.checkHelper(board,board.spot[kingX][kingY]));
 
                 }
