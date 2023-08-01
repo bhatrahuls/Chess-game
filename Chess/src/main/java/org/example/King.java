@@ -16,4 +16,9 @@ public class King extends Piece{
         }
         return false;
     }
+
+    @Override
+    public boolean isCheck(Board board, Spots curSpot, Spots desSpot) {
+        return false;
+    }
 }

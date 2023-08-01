@@ -22,4 +22,9 @@ public class Knight extends Piece{
         }
         return false;
     }
+
+    @Override
+    public boolean isCheck(Board board, Spots curSpot, Spots desSpot) {
+        return false;
+    }
 }

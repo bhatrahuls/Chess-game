@@ -61,5 +61,10 @@ public class Queen extends Piece{
         }
         return false;
     }
+
+    @Override
+    public boolean isCheck(Board board, Spots curSpot, Spots desSpot) {
+        return false;
+    }
 }
 

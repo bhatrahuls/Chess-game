@@ -22,6 +22,8 @@ abstract class Piece {
     }
     public abstract boolean validateMove(Board board, Spots curSpot,Spots desSpot,Helper helper);
 
+    public abstract boolean isCheck(Board board, Spots curSpot, Spots desSpot);
+
 
 
 

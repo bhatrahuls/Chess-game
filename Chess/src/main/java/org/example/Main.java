@@ -62,18 +62,15 @@ public class Main {
             //Index for white pawns start at (6 0) and travel backwards for eg (5,0)
 
 
-            /*System.out.println(board.spot[srcX][srcY].getPiece());
-            System.out.println(board.spot[desX][desY].getPiece());
-            System.out.println(board.spot[srcX][srcY].getPiece().validateMove(board,board.spot[srcX][srcY],board.spot[desX][desY]));
-             */
+
 
             //Validate the move and if valid move the piece
             //try catch to avoid nullPointerException
-            System.out.println("heerr");
+
             //System.out.println(board.spot[srcX][srcY].getPiece().validateMove(board,board.spot[srcX][srcY],board.spot[desX][desY],helper));
             try {
+                //System.out.println(board.spot[srcX][srcY].getPiece());
                 if(board.spot[srcX][srcY].getPiece().validateMove(board,board.spot[srcX][srcY],board.spot[desX][desY],helper)){
-                    //System.out.println("here");
                     helper.movePiece(board,board.spot[srcX][srcY],board.spot[desX][desY]);
                 }
                 else{
@@ -82,6 +79,7 @@ public class Main {
                 }
             }
             catch(Exception e){
+                System.out.println(e);
                 System.out.println("Source is empty");
                 continue;
             }

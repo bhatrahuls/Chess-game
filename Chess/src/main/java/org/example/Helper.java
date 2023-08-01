@@ -52,12 +52,45 @@ public class Helper {
         int desX=desSpot.getX();
         int desY=desSpot.getY();
 
+        //Store the piece that will be removed in temp variable
+        Piece temp=board.spot[desX][desY].getPiece();
+
         //setting destination to the piece at source
         board.spot[desX][desY].setPiece(board.spot[curX][curY].getPiece());
 
         //setting the source position as empty
         board.spot[curX][curY].setPiece(null);
 
+        //get color
+        String color;
+        int kingX;
+        int kingY;
+        if(board.spot[desX][desY].getPiece().isWhite()){
+            kingX=board.whiteKing[0];
+            kingY=board.whiteKing[1];
+        }
+        else{
+            kingX=board.blackKing[0];
+            kingY=board.blackKing[1];
+        }
+
+        boolean flag=false;
+        for(int i =0;i<8;i++) {
+            for (int j = 0; j < 8; j++) {
+                if(board.spot[i][j]!=null){
+                    if(board.spot[i][j].getPiece().isCheck(board,board.spot[kingX][kingY],board.spot[i][j])){
+                        board.spot[curX][curY].setPiece(board.spot[desX][desY].getPiece());
+                        board.spot[desX][desY].setPiece(temp);
+                        flag=true;
+                        break;
+                    }
+                }
+            }
+            if(flag)
+                break;
+        }
+        if(flag)
+            return;
         //if the piece moved is King, store its new position
         if("King".equals(board.spot[desX][desY].getPiece().getClass().getSimpleName())){
             if(board.spot[desX][desY].getPiece().isWhite()){
@@ -73,18 +106,5 @@ public class Helper {
         if(!board.spot[desX][desY].getPiece().isEverMoved()){
             board.spot[desX][desY].getPiece().setEverMoved(true);
         }
-    }
-    public boolean isCheck(Board board  , Spots curSpot, Helper helper){
-//        spot translates to current spot of king for which check will be calculated
-        for(int i =0;i<8;i++){
-            for(int j =0; j<8;j++){
-                Spots sp = board.spot[i][j];
-                if(sp.getPiece()!=null && sp.getPiece().isWhite()!= curSpot.getPiece().isWhite()){
-                    if(sp.getPiece().validateMove(board,sp,board.spot[curSpot.getX()][curSpot.getY()],helper))
-                        return true;
-                }
-            }
-        }
-        return false;
     }
 }

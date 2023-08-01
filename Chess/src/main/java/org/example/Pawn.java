@@ -38,4 +38,8 @@ public class Pawn extends Piece{
 
     }
 
+    @Override
+    public boolean isCheck(Board board, Spots curSpot, Spots desSpot) {
+        return false;
+    }
 }
