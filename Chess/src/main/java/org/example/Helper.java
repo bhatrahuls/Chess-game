@@ -77,8 +77,9 @@ public class Helper {
         boolean flag=false;
         for(int i =0;i<8;i++) {
             for (int j = 0; j < 8; j++) {
-                if(board.spot[i][j]!=null){
-                    if(board.spot[i][j].getPiece().isCheck(board,board.spot[kingX][kingY],board.spot[i][j])){
+                if(board.spot[i][j].getPiece()!=null){
+                    System.out.println(board.spot[i][j].getPiece().isCheck(board,board.spot[i][j],board.spot[kingX][kingY]));
+                    if(board.spot[i][j].getPiece().isCheck(board,board.spot[i][j],board.spot[kingX][kingY])){
                         board.spot[curX][curY].setPiece(board.spot[desX][desY].getPiece());
                         board.spot[desX][desY].setPiece(temp);
                         flag=true;
@@ -91,6 +92,7 @@ public class Helper {
         }
         if(flag)
             return;
+
         //if the piece moved is King, store its new position
         if("King".equals(board.spot[desX][desY].getPiece().getClass().getSimpleName())){
             if(board.spot[desX][desY].getPiece().isWhite()){

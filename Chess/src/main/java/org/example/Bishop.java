@@ -72,8 +72,8 @@ public class Bishop extends Piece {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 Spots sp = board.spot[i][j];
-                if (sp.getPiece() != null && sp.getPiece().isWhite() != curSpot.getPiece().isWhite()) {
-                    if (this.isCheckHelper(board, sp, board.spot[curSpot.getX()][curSpot.getY()])){
+                if (sp.getPiece() != null && sp.getPiece().isWhite() != desSpot.getPiece().isWhite()) {
+                    if (this.isCheckHelper(board, sp, board.spot[desSpot.getX()][desSpot.getY()])){
                         flag=true;
                         break;
                     }
