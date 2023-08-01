@@ -35,7 +35,7 @@ public class Main {
                 desX= sc.nextInt();
                 desY=sc.nextInt();
 
-                if( !board.spot[srcX][srcY].getPiece().isWhite()){
+                if(!board.spot[srcX][srcY].getPiece().isWhite()){
                     board.displayBoard();
                     continue;
                 }
@@ -52,7 +52,7 @@ public class Main {
                 desX= sc.nextInt();
                 desY=sc.nextInt();
 
-                if( board.spot[srcX][srcY].getPiece().isWhite()) {
+                if(board.spot[srcX][srcY].getPiece().isWhite()) {
                     board.displayBoard();
                     continue;
                 }
@@ -69,6 +69,7 @@ public class Main {
 
             //System.out.println(board.spot[srcX][srcY].getPiece().validateMove(board,board.spot[srcX][srcY],board.spot[desX][desY],helper));
             try {
+<<<<<<< HEAD
 
                 if(board.spot[srcX][srcY].getPiece().validateMove(board,board.spot[srcX][srcY],board.spot[desX][desY],helper)){
                     Piece temp=board.spot[srcX][srcY].getPiece();
@@ -83,6 +84,10 @@ public class Main {
                         kingY=board.whiteKing[1];
                     }
 
+=======
+                //System.out.println(board.spot[srcX][srcY].getPiece());
+                if(false){
+>>>>>>> refs/remotes/origin/master
                     helper.movePiece(board,board.spot[srcX][srcY],board.spot[desX][desY]);
                     System.out.println(helper.checkHelper(board,board.spot[kingX][kingY]));
 
