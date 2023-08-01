@@ -69,9 +69,23 @@ public class Main {
 
             //System.out.println(board.spot[srcX][srcY].getPiece().validateMove(board,board.spot[srcX][srcY],board.spot[desX][desY],helper));
             try {
-                //System.out.println(board.spot[srcX][srcY].getPiece());
+
                 if(board.spot[srcX][srcY].getPiece().validateMove(board,board.spot[srcX][srcY],board.spot[desX][desY],helper)){
+                    Piece temp=board.spot[srcX][srcY].getPiece();
+                    int kingX;
+                    int kingY;
+                    if(board.spot[srcX][srcY].getPiece().isWhite()){
+                        kingX=board.blackKing[0];
+                        kingY=board.blackKing[1];
+                    }
+                    else{
+                        kingX=board.whiteKing[0];
+                        kingY=board.whiteKing[1];
+                    }
+
                     helper.movePiece(board,board.spot[srcX][srcY],board.spot[desX][desY]);
+                    System.out.println(helper.checkHelper(board,board.spot[kingX][kingY]));
+
                 }
                 else{
                     System.out.println("Invalid move");

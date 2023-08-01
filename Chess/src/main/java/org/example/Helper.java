@@ -53,8 +53,9 @@ public class Helper {
         int desY=desSpot.getY();
 
         //Store the piece that will be removed in temp variable
-        Piece temp=board.spot[desX][desY].getPiece();
+        //Piece temp=board.spot[desX][desY].getPiece();
 
+        System.out.println();
         //setting destination to the piece at source
         board.spot[desX][desY].setPiece(board.spot[curX][curY].getPiece());
 
@@ -62,36 +63,6 @@ public class Helper {
         board.spot[curX][curY].setPiece(null);
 
         //get color
-        String color;
-        int kingX;
-        int kingY;
-        if(board.spot[desX][desY].getPiece().isWhite()){
-            kingX=board.whiteKing[0];
-            kingY=board.whiteKing[1];
-        }
-        else{
-            kingX=board.blackKing[0];
-            kingY=board.blackKing[1];
-        }
-
-        boolean flag=false;
-        for(int i =0;i<8;i++) {
-            for (int j = 0; j < 8; j++) {
-                if(board.spot[i][j].getPiece()!=null){
-                    System.out.println(board.spot[i][j].getPiece().isCheck(board,board.spot[i][j],board.spot[kingX][kingY]));
-                    if(board.spot[i][j].getPiece().isCheck(board,board.spot[i][j],board.spot[kingX][kingY])){
-                        board.spot[curX][curY].setPiece(board.spot[desX][desY].getPiece());
-                        board.spot[desX][desY].setPiece(temp);
-                        flag=true;
-                        break;
-                    }
-                }
-            }
-            if(flag)
-                break;
-        }
-        if(flag)
-            return;
 
         //if the piece moved is King, store its new position
         if("King".equals(board.spot[desX][desY].getPiece().getClass().getSimpleName())){
@@ -108,5 +79,28 @@ public class Helper {
         if(!board.spot[desX][desY].getPiece().isEverMoved()){
             board.spot[desX][desY].getPiece().setEverMoved(true);
         }
+    }
+
+    public boolean checkHelper(Board board, Spots desSpot){
+
+
+        //get destination positions
+        int desX=desSpot.getX();
+        int desY=desSpot.getY();
+
+        boolean flag=false;
+        for(int i =0;i<8;i++) {
+            for (int j = 0; j < 8; j++) {
+                if((board.spot[i][j].getPiece()!=null) && (board.spot[i][j].getPiece().isWhite() != desSpot.getPiece().isWhite())){
+                    if(board.spot[i][j].getPiece().isCheck(board,board.spot[i][j],desSpot)){
+                        flag=true;
+                        break;
+                    }
+                }
+            }
+            if(flag)
+                break;
+        }
+        return flag;
     }
 }

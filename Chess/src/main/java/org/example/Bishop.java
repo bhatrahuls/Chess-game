@@ -32,7 +32,9 @@ public class Bishop extends Piece {
         return false;
     }
 
-    public boolean isCheckHelper(Board board, Spots curSpot, Spots desSpot) {
+
+    @Override
+    public boolean isCheck(Board board, Spots curSpot, Spots desSpot) {
         int desX = desSpot.getX();
         int desY = desSpot.getY();
 
@@ -57,31 +59,5 @@ public class Bishop extends Piece {
             return true;
         }
         return false;
-    }
-
-    @Override
-    public boolean isCheck(Board board, Spots curSpot, Spots desSpot) {
-        int desX = desSpot.getX();
-        int desY = desSpot.getY();
-
-        //source
-        int curX = curSpot.getX();
-        int curY = curSpot.getY();
-
-        boolean flag=false;
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                Spots sp = board.spot[i][j];
-                if (sp.getPiece() != null && sp.getPiece().isWhite() != desSpot.getPiece().isWhite()) {
-                    if (this.isCheckHelper(board, sp, board.spot[desSpot.getX()][desSpot.getY()])){
-                        flag=true;
-                        break;
-                    }
-                }
-            }
-            if(flag)
-                break;
-        }
-        return flag;
     }
 }
