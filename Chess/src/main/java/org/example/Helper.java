@@ -103,4 +103,27 @@ public class Helper {
         }
         return flag;
     }
+
+    public boolean checkHelperSelf(Board board, Spots desSpot){
+
+
+        //get destination positions
+        int desX=desSpot.getX();
+        int desY=desSpot.getY();
+
+        boolean flag=false;
+        for(int i =0;i<8;i++) {
+            for (int j = 0; j < 8; j++) {
+                if((board.spot[i][j].getPiece()!=null) && (board.spot[i][j].getPiece().isWhite() != desSpot.getPiece().isWhite())){
+                    if(board.spot[i][j].getPiece().isCheck(board,board.spot[i][j],desSpot)){
+                        flag=true;
+                        break;
+                    }
+                }
+            }
+            if(flag)
+                break;
+        }
+        return flag;
+    }
 }

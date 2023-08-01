@@ -17,7 +17,7 @@ public class Bishop extends Piece {
                 if (board.spot[desX][desY].getPiece() == null || board.spot[desX][desY].getPiece().isWhite() != board.spot[curX][curY].getPiece().isWhite()) {
                     int incementX = (curX > desX) ? -1 : 1;
                     int incementY = (curY > desY) ? -1 : 1;
-                    while (curX < (desX - incementX) && curY < (desY - incementY)) {
+                    while (curX != desX  && curY != desY) {
                         curX = curX + incementX;
                         curY = curY + incementY;
                         if (board.spot[curX][curY].getPiece() != null) {
@@ -47,16 +47,19 @@ public class Bishop extends Piece {
             if (board.spot[desX][desY].getPiece() == null || board.spot[desX][desY].getPiece().isWhite() != board.spot[curX][curY].getPiece().isWhite()) {
                 int incementX = (curX > desX) ? -1 : 1;
                 int incementY = (curY > desY) ? -1 : 1;
-                while (curX < (desX - incementX) && curY < (desY - incementY)) {
+                System.out.println(curX+" "+desX+" "+ incementX);
+                System.out.println(curY+" "+desY+" "+ incementY);
+                while (curX < desX && curY < desY ) {
                     curX = curX + incementX;
                     curY = curY + incementY;
+                    System.out.println(board.spot[curX][curY].getPiece());
                     if (board.spot[curX][curY].getPiece() != null) {
                         return false;
                     }
                 }
                 return true;
             }
-            return true;
+            return false;
         }
         return false;
     }

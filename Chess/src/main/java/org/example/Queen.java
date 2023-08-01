@@ -46,7 +46,7 @@ public class Queen extends Piece{
                 else if (((curX - desX) == (curY - desY)) || ((curX - desX) == (-1) * (curY - desY))) {
                     int incementX = (curX > desX) ? -1 : 1;
                     int incementY = (curY > desY) ? -1 : 1;
-                    while (curX < (desX - incementX) && curY < (desY - incementY)) {
+                    while (curX != desX  && curY != desY) {
                         curX = curX + incementX;
                         curY = curY + incementY;
                         if (board.spot[curX][curY].getPiece() != null) {
@@ -66,5 +66,6 @@ public class Queen extends Piece{
     public boolean isCheck(Board board, Spots curSpot, Spots desSpot) {
         return false;
     }
+
 }
 

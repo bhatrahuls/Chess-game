@@ -74,18 +74,36 @@ public class Main {
                     Piece temp=board.spot[srcX][srcY].getPiece();
                     int kingX;
                     int kingY;
+                    boolean isWhite=true;
                     if(board.spot[srcX][srcY].getPiece().isWhite()){
-                        kingX=board.blackKing[0];
-                        kingY=board.blackKing[1];
+                        isWhite=false;
                     }
                     else{
-                        kingX=board.whiteKing[0];
-                        kingY=board.whiteKing[1];
+                        isWhite=true;
                     }
 
-                    helper.movePiece(board,board.spot[srcX][srcY],board.spot[desX][desY]);
-                    System.out.println(helper.checkHelper(board,board.spot[kingX][kingY]));
-
+                    if(isWhite){
+                        System.out.println("Here");
+                        helper.movePiece(board,board.spot[srcX][srcY],board.spot[desX][desY]);
+                        System.out.println(helper.checkHelper(board,board.spot[board.whiteKing[0]][board.whiteKing[1]]));
+                        if(helper.checkHelperSelf(board,board.spot[board.blackKing[0]][board.blackKing[1]])){
+                            System.out.println("You get a check");
+                            board.spot[srcX][srcY].setPiece(board.spot[desX][desY].getPiece());
+                            board.spot[desX][desY].setPiece(temp);
+                            continue;
+                        }
+                    }
+                    else{
+                        System.out.println("here2");
+                        helper.movePiece(board,board.spot[srcX][srcY],board.spot[desX][desY]);
+                        System.out.println(helper.checkHelper(board,board.spot[board.blackKing[0]][board.blackKing[1]]));
+                        if(helper.checkHelperSelf(board,board.spot[board.whiteKing[0]][board.whiteKing[1]])) {
+                            System.out.println("You get a check");
+                            board.spot[srcX][srcY].setPiece(board.spot[desX][desY].getPiece());
+                            board.spot[desX][desY].setPiece(temp);
+                            continue;
+                        }
+                    }
                 }
                 else{
                     System.out.println("Invalid move");
