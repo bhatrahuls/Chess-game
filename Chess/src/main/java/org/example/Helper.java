@@ -52,6 +52,7 @@ public class Helper {
         int desX=desSpot.getX();
         int desY=desSpot.getY();
 
+
         //Store the piece that will be removed in temp variable
         //Piece temp=board.spot[desX][desY].getPiece();
 
