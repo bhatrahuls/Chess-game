@@ -21,4 +21,5 @@ public class King extends Piece{
     public boolean isCheck(Board board, Spots curSpot, Spots desSpot) {
         return false;
     }
+
 }
