@@ -71,7 +71,7 @@ public class Main {
             try {
 
                 if(board.spot[srcX][srcY].getPiece().validateMove(board,board.spot[srcX][srcY],board.spot[desX][desY],helper)){
-                    Piece temp=board.spot[srcX][srcY].getPiece();
+                    Piece temp=board.spot[desX][desY].getPiece();
                     int kingX;
                     int kingY;
                     boolean isWhite=true;

@@ -22,7 +22,7 @@ public class Queen extends Piece{
                                 return false;
                         }
                     } else if (desX < curX) {
-                        for (int i = curY + 1; i > desY; i--) {
+                        for (int i = curX - 1; i > desX; i--) {
                             if (!(board.spot[i][desY].getPiece() == null))
                                 return false;
                         }

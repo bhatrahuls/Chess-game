@@ -49,7 +49,7 @@ public class Bishop extends Piece {
                 int incementY = (curY > desY) ? -1 : 1;
                 System.out.println(curX+" "+desX+" "+ incementX);
                 System.out.println(curY+" "+desY+" "+ incementY);
-                while (curX < desX && curY < desY ) {
+                while (curX != desX && curY != desY ) {
                     curX = curX + incementX;
                     curY = curY + incementY;
                     System.out.println(board.spot[curX][curY].getPiece());
