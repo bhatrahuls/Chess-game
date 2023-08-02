@@ -118,6 +118,8 @@ public class Helper {
                 if((board.spot[i][j].getPiece()!=null) && (board.spot[i][j].getPiece().isWhite() != desSpot.getPiece().isWhite())){
                     if(board.spot[i][j].getPiece().isCheck(board,board.spot[i][j],desSpot)){
                         flag=true;
+                        System.out.println("It is a check from"+board.spot[i][j].getPiece() );
+                        System.out.println(board.spot[i][j].getPiece().isWhite());
                         break;
                     }
                 }

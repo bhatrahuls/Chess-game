@@ -15,7 +15,7 @@ public class Queen extends Piece{
             //In case of horizontal/vertical moves
             //check for hurdles(other pieces) in the way
             if (board.spot[desX][desY].getPiece() == null || board.spot[desX][desY].getPiece().isWhite() != board.spot[curX][curY].getPiece().isWhite()) {
-                if (!(desX == curX || desY == curY)) {
+                if ((desX == curX) || (desY == curY)) {
                     if (desX > curX) {
                         for (int i = curX + 1; i < desX; i++) {
                             if (!(board.spot[i][desY].getPiece() == null))
@@ -56,7 +56,7 @@ public class Queen extends Piece{
                     }
                     return true;
                 }
-                return true;
+                return false;
             }
             return false;
         }
@@ -76,7 +76,7 @@ public class Queen extends Piece{
         //In case of horizontal/vertical moves
         //check for hurdles(other pieces) in the way
         if (board.spot[desX][desY].getPiece() == null || board.spot[desX][desY].getPiece().isWhite() != board.spot[curX][curY].getPiece().isWhite()) {
-            if (!(desX == curX || desY == curY)) {
+            if ((desX == curX) || (desY == curY)) {
                 if (desX > curX) {
                     for (int i = curX + 1; i < desX; i++) {
                         if (!(board.spot[i][desY].getPiece() == null))
@@ -117,7 +117,7 @@ public class Queen extends Piece{
                 }
                 return true;
             }
-            return true;
+            return false;
         }
         return false;
     }

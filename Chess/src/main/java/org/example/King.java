@@ -12,6 +12,7 @@ public class King extends Piece{
         if(helper.isValidSpot(board,desX,curX,desY,curY)){
 
             //write logic here
+            return false;
 
         }
         return false;

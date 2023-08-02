@@ -35,6 +35,9 @@ public class Main {
                 desX= sc.nextInt();
                 desY=sc.nextInt();
 
+                if(board.spot[srcX][srcY].getPiece()==null)
+                    continue;
+
                 if( !board.spot[srcX][srcY].getPiece().isWhite()){
                     board.displayBoard();
                     continue;
@@ -51,6 +54,9 @@ public class Main {
                 System.out.println("Move piece to: ");
                 desX= sc.nextInt();
                 desY=sc.nextInt();
+
+                if(board.spot[srcX][srcY].getPiece()==null)
+                    continue;
 
                 if( board.spot[srcX][srcY].getPiece().isWhite()) {
                     board.displayBoard();
