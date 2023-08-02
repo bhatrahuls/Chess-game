@@ -82,7 +82,7 @@ public class Helper {
         }
     }
 
-    public boolean checkHelper(Board board, Spots desSpot){
+    public boolean checkHelper(Board board, Spots desSpot, Helper helper){
 
 
         //get destination positions
@@ -93,7 +93,7 @@ public class Helper {
         for(int i =0;i<8;i++) {
             for (int j = 0; j < 8; j++) {
                 if((board.spot[i][j].getPiece()!=null) && (board.spot[i][j].getPiece().isWhite() != desSpot.getPiece().isWhite())){
-                    if(board.spot[i][j].getPiece().isCheck(board,board.spot[i][j],desSpot)){
+                    if(board.spot[i][j].getPiece().isCheck(board,board.spot[i][j],desSpot,helper)){
                         flag=true;
                         break;
                     }
@@ -105,7 +105,7 @@ public class Helper {
         return flag;
     }
 
-    public boolean checkHelperSelf(Board board, Spots desSpot){
+    public boolean checkHelperSelf(Board board, Spots desSpot, Helper helper){
 
 
         //get destination positions
@@ -116,7 +116,7 @@ public class Helper {
         for(int i =0;i<8;i++) {
             for (int j = 0; j < 8; j++) {
                 if((board.spot[i][j].getPiece()!=null) && (board.spot[i][j].getPiece().isWhite() != desSpot.getPiece().isWhite())){
-                    if(board.spot[i][j].getPiece().isCheck(board,board.spot[i][j],desSpot)){
+                    if(board.spot[i][j].getPiece().isCheck(board,board.spot[i][j],desSpot,helper)){
                         flag=true;
                         System.out.println("It is a check from"+board.spot[i][j].getPiece() );
                         System.out.println(board.spot[i][j].getPiece().isWhite());

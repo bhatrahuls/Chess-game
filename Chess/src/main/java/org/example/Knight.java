@@ -15,7 +15,7 @@ public class Knight extends Piece{
         int curX=curSpot.getX();
         int curY=curSpot.getY();
 
-        if(helper.isValidSpot(board,desX,curX,desY,curY) && (board.spot[desX][desY].getPiece() == null || board.spot[desX][desY].getPiece().isWhite() != board.spot[curX][curY].getPiece().isWhite()))
+        if((board.spot[desX][desY].getPiece() == null || board.spot[desX][desY].getPiece().isWhite() != board.spot[curX][curY].getPiece().isWhite()))
         {
             //logic
             return Math.abs(desX-curX)*Math.abs(desY-curY)==2;
@@ -24,7 +24,8 @@ public class Knight extends Piece{
     }
 
     @Override
-    public boolean isCheck(Board board, Spots curSpot, Spots desSpot) {
-        return false;
+    public boolean isCheck(Board board, Spots curSpot, Spots desSpot, Helper helper) {
+
+        return this.validateMove(board,curSpot,desSpot,helper);
     }
 }
