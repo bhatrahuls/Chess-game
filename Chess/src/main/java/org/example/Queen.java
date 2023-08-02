@@ -32,11 +32,12 @@ public class Queen extends Piece{
                                 return false;
                         }
                     } else {
-                        for (int i = curY; i > desY; i--) {
+                        for (int i = curY-1; i > desY; i--) {
                             if (!(board.spot[desX][i].getPiece() == null))
                                 return false;
                         }
                     }
+                    return true;
 
                 }
 

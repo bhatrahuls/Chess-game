@@ -84,7 +84,7 @@ public class Board {
                 }
                 //Print null in case a spot is found empty
                 catch (Exception e) {
-                    System.out.print("nullnull" + "\t");
+                    System.out.print("        " + "\t");
                 }
 
 
