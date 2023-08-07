@@ -89,7 +89,7 @@ public class Main {
 
                         if (isWhite) {
                             System.out.println("Here");
-                            helper.movePiece(board, board.spot[srcX][srcY], board.spot[desX][desY]);
+                            helper.movePiece(board, board.spot[srcX][srcY], board.spot[desX][desY], "b");
                             System.out.println(helper.checkHelper(board, board.spot[board.whiteKing[0]][board.whiteKing[1]], helper));
                             if (helper.checkHelperSelf(board, board.spot[board.blackKing[0]][board.blackKing[1]], helper)) {
                                 System.out.println("You get a check");
@@ -99,7 +99,7 @@ public class Main {
                             }
                         } else {
                             System.out.println("here2");
-                            helper.movePiece(board, board.spot[srcX][srcY], board.spot[desX][desY]);
+                            helper.movePiece(board, board.spot[srcX][srcY], board.spot[desX][desY], "w");
                             System.out.println(helper.checkHelper(board, board.spot[board.blackKing[0]][board.blackKing[1]], helper));
                             if (helper.checkHelperSelf(board, board.spot[board.whiteKing[0]][board.whiteKing[1]], helper)) {
                                 System.out.println("You get a check");

@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class Helper {
     public boolean isValidSpot(Board board, int desX, int curX, int desY, int curY){
         //check if the destination is valid
@@ -43,7 +45,7 @@ public class Helper {
     }
 
     //Logic to move piece from source to destination
-    public void movePiece(Board board,Spots curSpot,Spots desSpot){
+    public void movePiece(Board board,Spots curSpot,Spots desSpot, String color){
         //get current positions
         int curX=curSpot.getX();
         int curY=curSpot.getY();
@@ -80,6 +82,32 @@ public class Helper {
         if(!board.spot[desX][desY].getPiece().isEverMoved()){
             board.spot[desX][desY].getPiece().setEverMoved(true);
         }
+
+        boolean promote = false;
+        if(desSpot.getPiece().getClass().getSimpleName().equals("Pawn") && (desX == 0 || desX == 7)){
+            promote = true;
+        }
+
+        if(promote){
+            while (true){
+                Scanner sc = new Scanner(System.in);
+                System.out.println("Choose any one of {Queen, Rook, Bishop, or Knight} to promote the pawn");
+                String piece = sc.next();
+                if(!piece.equals("Queen") && !piece.equals("Rook") && !piece.equals("Bishop") && !piece.equals("Knight")) {
+                    continue;
+                }
+                promotePawn(board, piece, desSpot, color);
+                break;
+            }
+        }
+    }
+
+    public void promotePawn(Board board, String piece ,Spots curSpot, String color){
+        int curX = curSpot.getX();
+        int curY = curSpot.getY();
+
+        PieceFactory pieceFactory = new PieceFactory();
+        board.spot[curX][curY].setPiece(pieceFactory.getNewPiece(piece, color));
     }
 
     public boolean checkHelper(Board board, Spots desSpot, Helper helper){
